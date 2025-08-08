@@ -1,0 +1,24 @@
+package wiprotraining;
+
+public class studentcard {
+    int cppMarks = 92;
+    int javaMarks = 87;
+    int reactMarks = 90;
+
+    int totalMarks = cppMarks + javaMarks + reactMarks;
+    float average = totalMarks / 3.0f;
+     
+    char grade;
+    if (average >= 90) grade = 'A';
+    else if (average >= 80) grade = 'B';
+    else if (average >= 70) grade = 'C';
+    else grade = 'D';
+    
+    System.out.println("my cpp marks: " + cppMarks);
+    System.out.println(" my java marks: " + javaMarks);
+    System.out.println(" my react marks " + reactMarks);
+    System.out.println("-------------------------------------");
+    System.out.println("Total Marks    : " + totalMarks);
+    System.out.printf("Average Marks  : %.2f\n", average);
+    System.out.println("Grade          : " + grade);
+}

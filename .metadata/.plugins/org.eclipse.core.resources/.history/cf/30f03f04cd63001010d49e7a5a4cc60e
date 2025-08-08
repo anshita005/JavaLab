@@ -1,0 +1,17 @@
+package wiprotraining;
+
+public class variabledemo {
+
+    static int num1 = 10;
+
+     int num2 = 20;
+
+    public static void addTwoNumbers() {
+        int sum = num1 + num2;
+        System.out.println("Local Variable: " + sum);
+    }
+
+    public static void main(String[] args) {
+        addTwoNumbers(); 
+    }
+}

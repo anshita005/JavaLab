@@ -1,0 +1,16 @@
+package wiprotraining;
+
+public class studentcard {
+    int cppMarks = 92;
+    int javaMarks = 87;
+    int reactMarks = 90;
+
+    int totalMarks = cppMarks + javaMarks + reactMarks;
+    float average = totalMarks / 3.0f;
+     
+    char grade;
+    if (average >= 90) grade = 'A';
+    else if (average >= 80) grade = 'B';
+    else if (average >= 70) grade = 'C';
+    else grade = 'D';
+}

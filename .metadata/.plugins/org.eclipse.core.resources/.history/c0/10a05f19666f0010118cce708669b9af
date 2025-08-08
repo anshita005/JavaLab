@@ -1,0 +1,61 @@
+package JDBC;
+
+import java.sql.*;
+
+public class DBConnect {
+	public static void main(String[] args) {
+
+		Object[][] patients = {
+			{"Anshita", 22, "Cold"},
+			{"Shri", 24, "Fever"},
+			{"Dipanwita", 21, "Headache"},
+			{"Ajay", 22, "Cough"}
+		};
+
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hospital", "root", "anshi@12");
+
+			// Insert (optional)
+			/*
+			String sql = "INSERT INTO patient(name, age, disease) VALUES (?, ?, ?)";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+
+			for (Object[] patient : patients) {
+				pstmt.setString(1, (String) patient[0]); 
+				pstmt.setInt(2, (Integer) patient[1]);   
+				pstmt.setString(3, (String) patient[2]); 
+				pstmt.executeUpdate();
+			}
+			*/
+
+			String deleteSql = "DELETE FROM patient WHERE name = ?";
+			PreparedStatement deleteStmt = con.prepareStatement(deleteSql);
+			deleteStmt.setString(1, "Rahul"); 
+
+			int rowsAffected = deleteStmt.executeUpdate();  
+
+			if (rowsAffected > 0) {
+				System.out.println("Patient deleted successfully.");
+			} else {
+				System.out.println("No patient found with the given name.");
+			}
+			
+			String updateSql = "UPDATE patient SET disease = ? WHERE name = ?";
+			PreparedStatement updateStmt = con.prepareStatement(updateSql);
+			updateStmt.setString(1, "Recovered"); 
+			updateStmt.setString(2, "Anshita"); 
+			int updateCount = updateStmt.executeUpdate();
+			if (updateCount > 0) {
+				System.out.println("Patient record updated successfully.");
+			} else {
+				System.out.println("No patient found to update.");
+			}
+
+			con.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

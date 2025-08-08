@@ -1,0 +1,19 @@
+package wiprotraining;
+
+public class hello {
+
+    public static void main(String[] args) {
+        String firstName = "Anshita";
+        String lastName = "Sharma";
+        long mobileNumber = 9368603153L;
+        int age = 22;
+
+        System.out.println(firstName);
+        System.out.println(lastName);
+        System.out.println(mobileNumber);
+        System.out.println(age);
+        System.out.println("My Name is"+ firstName + ", my age is " + age);
+        
+    }
+}
+

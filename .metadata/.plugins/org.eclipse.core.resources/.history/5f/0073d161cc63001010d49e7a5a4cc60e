@@ -1,0 +1,25 @@
+package wiprotraining;
+
+public class VariableDemo {
+
+    // Static variable
+    static int num1 = 10;
+
+    // Instance variable
+    int num2 = 20;
+
+    public void addTwoNumbers() {
+  
+        int sum = num1 + num2;
+
+        System.out.println("Static Variable (number1): " + num1);
+        System.out.println("Instance Variable (number2): " + num2);
+        System.out.println("Local Variable (sum): " + sum);
+    }
+
+    public static void main(String[] args) {
+        // Create object to call instance method
+        VariableDemo obj = new VariableDemo();
+        obj.addNumbers();
+    }
+}

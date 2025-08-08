@@ -1,0 +1,46 @@
+package wiprotraining;
+
+public class controlflow {
+    public static void main(String[] args) {
+        System.out.println("---Example for if else conditions----");      
+        int number = 10;
+        if (number % 2 == 0) {
+            System.out.println(number + " is even");
+        } else {
+            System.out.println(number + " is odd");
+        }
+        System.out.println("----Example for switch cases----");   
+        int day = 3;
+        switch (day) {
+            case 1:
+                System.out.println("Monday");
+                break;
+            case 2:
+                System.out.println("Tuesday");
+                break;
+            case 3:
+                System.out.println("Wednesday");
+                break;
+            default:
+                System.out.println("Other day");
+        }
+        System.out.println("----Example for continue condition----");   
+        System.out.println("For loop (skipping 3):");
+        for (int i = 1; i <= 5; i++) {
+            if (i == 3) {
+                continue;
+            }
+            System.out.println("i = " + i);
+        }
+        System.out.println("----Example for break condition----");   
+        System.out.println("While loop (stopping at 4):");
+        int count = 1;
+        while (count <= 5) {
+            if (count == 4) {
+                break;
+            }
+            System.out.println("count = " + count);
+            count++;
+        }
+    }
+}

@@ -1,0 +1,37 @@
+package JDBC;
+
+import java.sql.*;
+
+public class DBConnect {
+	public static void main(String[] args) {
+
+		Object[][] patients = {
+			{"Anshita", 22, "Cold"},
+			{"Rahul", 24, "Fever"},
+			{"Priya", 21, "Headache"},
+			{"Rohan", 26, "Cough"}
+		};
+
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hospital", "root", "anshi@12");
+
+			String sql = "INSERT INTO patient(name, age, disease) VALUES (?, ?, ?)";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+
+			for (Object[] patient : patients) {
+				pstmt.setString(1, (String) patient[0]); // name
+				pstmt.setInt(2, (Integer) patient[1]);   // age
+				pstmt.setString(3, (String) patient[2]); // disease
+
+				pstmt.executeUpdate();
+			}
+
+			System.out.println("All patients inserted successfully.");
+			con.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}
